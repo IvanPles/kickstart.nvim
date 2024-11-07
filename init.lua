@@ -613,6 +613,11 @@ require('lazy').setup({
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+      -- Ensuring to install pyright
+      -- local mason_lsp_config = require 'mason-lspconfig'
+      -- mason_lsp_config.setup {
+      --   ensure_installed = { 'pyright' },
+      -- }
       local servers = {
         -- clangd = {},
         -- gopls = {},
@@ -848,6 +853,21 @@ require('lazy').setup({
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
+    end,
+  },
+  {
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    priority = 1000,
+    init = function()
+      vim.cmd.colorscheme 'catppuccin'
+    end,
+  },
+  {
+    'luk400/vim-jukit',
+    name = 'jukit',
+    config = function()
+      local jukit_shell_cmd = 'ipython3'
     end,
   },
 
